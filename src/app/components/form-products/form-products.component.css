@@ -1,4 +1,40 @@
-.container{
+
+body{
+    background-color: #e5e5f7;
+opacity: 0.8;
+background-image: radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
+background-size: 10px 10px;
+display: flex;
+min-height: 100vh;
+}
+form{
+    background-color: #fff;
+    margin: auto;
+    width: 90%;
+    max-width: 600px;
+    padding: 4.5em 3em;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
+    text-align: center;
+}
+.form-group{
     position: relative;
-    top: 50px;
+    --color: #5757577e;
+    width: 100%;
+    background: none;
+    color: #000;
+    font-size: 1rem;
+    padding: .6em .3em;
+    border: none;
+}
+
+.form-control:focu + .form_label{
+    transform: translateY(-12px) scale(.7);
+    transform-origin: left top;
+    color: #3866f2;
+}
+
+.form_label{
+
+
 }
