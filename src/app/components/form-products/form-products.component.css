@@ -28,13 +28,14 @@ form{
     border: none;
 }
 
-.form-control:focu + .form_label{
+.form-control:focus + .form_label{
     transform: translateY(-12px) scale(.7);
     transform-origin: left top;
     color: #3866f2;
 }
 
 .form_label{
-
-
+    color: #000;
+    cursor: pointer;
+    top: 0;
 }

@@ -11,5 +11,7 @@ export class FormProductsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  agregarProducto(){
+    console.log("Se agrego el prodycto");
+  }
 }

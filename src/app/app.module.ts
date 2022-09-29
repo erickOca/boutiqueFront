@@ -1,4 +1,4 @@
-import { FormLoginComponent } from './form-login/form-login.component';
+import { FormLoginComponent } from './components/form-login/form-login.component';
 import { FormProductsComponent } from './components/form-products/form-products.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 const routes: Routes = [
   { path: '',         component: LoginComponent},
   { path: 'listProd', component: ProductsComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
     FooterComponent,
     SidebarComponent,
     LoginComponent,
+    FormLoginComponent
     
   ],
   imports: [
