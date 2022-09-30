@@ -12,12 +12,14 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { UpdateProductComponent } from './components/update-product/update-product.component';
 
 const routes: Routes = [
   { path: '',         component: LoginComponent},
   { path: 'listProd', component: ProductsComponent },
   { path: 'formProd', component: FormProductsComponent },
-  { path: 'formLogin', component: FormLoginComponent }
+  { path: 'formLogin', component: FormLoginComponent },
+  { path: 'editarProducto', component: UpdateProductComponent }
 ]
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ const routes: Routes = [
     FooterComponent,
     SidebarComponent,
     LoginComponent,
-    FormLoginComponent
+    FormLoginComponent,
+    FormProductsComponent,
+    UpdateProductComponent
     
   ],
   imports: [

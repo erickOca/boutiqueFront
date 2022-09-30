@@ -3,8 +3,14 @@
     
   <div >
         <form action="">
-          <h1>Registra productos</h1>
+          <h1>Modificar productos</h1>
           <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="id" class="form_label">Id</label>
+              <input type="id" class="form-control" id="id" placeholder="id" [(ngModel)]= "producto.id"
+              name="id">
+              <br>
+            </div>
             <div class="form-group col-md-6">
               <label for="nombre" class="form_label">Nombre</label>
               <input type="nombre" class="form-control" id="nombre" placeholder="Nombre" [(ngModel)]= "producto.nombre"
@@ -74,7 +80,7 @@
           </div>
             <br>
             <br>
-          <button (click)= "guardar(producto)" class="btn btn-primary" >Agregar</button>
+          <button (click)= "editar()" class="btn btn-primary" >Agregar</button>
         </form>
       </div>
     </div>
