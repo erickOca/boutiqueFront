@@ -18,6 +18,10 @@ export class ProductService {
     console.log(Producto);
   }
 
+  getByCategoria(categoria:String){
+    return this.httpClient.get<Producto>(this.baseUrl + 'getByCategoria' + categoria);
+  }
+
   createProduct(producto:Producto){
     return this.httpClient.post<Producto>(this.baseUrl + 'save' , producto);
   }
