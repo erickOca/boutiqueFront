@@ -1,81 +1,160 @@
 <body>
-  <div class="container" >
-    
-  <div >
-        <form action="">
-          <h1>Registra productos</h1>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="nombre" class="form_label">Nombre</label>
-              <input type="nombre" class="form-control" id="nombre" placeholder="Nombre" [(ngModel)]= "producto.nombre"
-              name="nombre">
-              <br>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputPassword4" class="form_label">Descripcion</label>
-              <input type="Descripcion" class="form-control" id="Descripcion" placeholder="Descripcion"[(ngModel)]= "producto.descripcion"
-              name="descripcion">
-              <br>
-            </div>
+  <div class="container">
+    <div>
+      <form action="">
+        <h1>Registra productos</h1>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="nombre" class="form_label">Nombre</label>
+            <input
+              type="nombre"
+              class="form-control"
+              id="nombre"
+              placeholder="Nombre"
+              [(ngModel)]="producto.nombre"
+              name="nombre"
+            />
+            <br />
           </div>
-          <div class="form-group">
-            <label for="inputAddress" class="form_label">Precio</label>
-            <input type="number" class="form-control" id="Precio" placeholder="$" [(ngModel)]= "producto.precio"
-              name="precio">
-            <br>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4" class="form_label">Descripcion</label>
+            <input
+              type="Descripcion"
+              class="form-control"
+              id="Descripcion"
+              placeholder="Descripcion"
+              [(ngModel)]="producto.descripcion"
+              name="descripcion"
+            />
+            <br />
           </div>
-          <div class="form-group">
-            <label for="inputAddress2" class="form_label">Marca</label>
-            <input type="text" class="form-control" id="marca" placeholder="Marca" [(ngModel)]= "producto.marca"
-              name="marca">
-            <br>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputCity" class="form_label">Talla</label>
-              <input type="text" class="form-control" id="talla" [(ngModel)]= "producto.talla"
-              name="talla">
-              <br>
-            </div>
-            <div class="form-group col-md-2">
-              <label for="inputZip" class="form_label">Color</label>
-              <input type="text" class="form-control" id="inputZip" [(ngModel)]= "producto.color"
-              name="color">
-              <br>
-            </div>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputZip" class="form_label">Stock</label>
-            <input type="number" class="form-control" id="number" [(ngModel)]= "producto.stock"
-              name="stock">
-            <br>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputZip" class="form_label">Codigo de barras</label>
-            <input type="text" class="form-control" id="codigoBarras" [(ngModel)]= "producto.codigoBarras"
-              name="codigoBarras">
-            <br>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputZip" class="form_label">Temporada</label>
-            <input type="text" class="form-control" id="temporada" [(ngModel)]= "producto.temporada"
-              name="temporada">
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputZip" class="form_label">Genero</label>
-            <input type="text" class="form-control" id="Genero" [(ngModel)]= "producto.genero"
-              name="genero">
-            <br>
+        </div>
+        <div class="form-group">
+          <label for="inputAddress" class="form_label">Precio</label>
+          <input
+            type="number"
+            class="form-control"
+            id="Precio"
+            placeholder="$"
+            [(ngModel)]="producto.precio"
+            name="precio"
+          />
+          <br />
+        </div>
+        <div class="form-group">
+          <label for="inputAddress2" class="form_label">Marca</label>
+          <input
+            type="text"
+            class="form-control"
+            id="marca"
+            placeholder="Marca"
+            [(ngModel)]="producto.marca"
+            name="marca"
+          />
+          <br />
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity" class="form_label">Talla</label>
+            <input
+              type="text"
+              class="form-control"
+              id="talla"
+              [(ngModel)]="producto.talla"
+              name="talla"
+            />
+            <br />
           </div>
           <div class="form-group col-md-2">
-            <label for="inputZip" class="form_label">Categoria</label>
-            <input type="text" class="form-control" id="categoria" [(ngModel)]= "producto.categoria"
-              name="categoria">
+            <label for="inputZip" class="form_label">Color</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputZip"
+              [(ngModel)]="producto.color"
+              name="color"
+            />
+            <br />
           </div>
-            <br>
-            <br>
-          <button (click)= "guardar(producto)" class="btn btn-primary" >Agregar</button>
-        </form>
-      </div>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip" class="form_label">Stock</label>
+          <input
+            type="number"
+            class="form-control"
+            id="number"
+            [(ngModel)]="producto.stock"
+            name="stock"
+          />
+          <br />
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip" class="form_label">Codigo de barras</label>
+          <input
+            type="text"
+            class="form-control"
+            id="codigoBarras"
+            [(ngModel)]="producto.codigoBarras"
+            name="codigoBarras"
+          />
+          <br />
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip" class="form_label">Temporada</label>
+          <input
+            type="text"
+            class="form-control"
+            id="temporada"
+            [(ngModel)]="producto.temporada"
+            name="temporada"
+          />
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip" class="form_label">Genero</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Genero"
+            [(ngModel)]="producto.genero"
+            name="genero"
+          />
+          <br />
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip" class="form_label">Categoria</label>
+          <input
+            type="text"
+            class="form-control"
+            id="categoria"
+            [(ngModel)]="producto.categoria"
+            name="categoria"
+          />
+        </div>
+        <div class="input-group">
+          <input
+            type="file"
+            class="form-control"
+            id="inputGroupFile04"
+            aria-describedby="inputGroupFileAddon04"
+            aria-label="Upload"
+               [(ngModel)]="producto.imagen"
+            name="imagen"
+          
+          />
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            id="inputGroupFileAddon04"
+          >
+            Button
+          </button>
+        </div>
+        <br />
+        <br />
+        <button (click)="guardar(producto)" class="btn btn-primary">
+          Agregar
+        </button>
+      </form>
     </div>
+  </div>
 </body>

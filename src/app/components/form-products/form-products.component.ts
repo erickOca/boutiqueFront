@@ -14,7 +14,9 @@ export class FormProductsComponent implements OnInit {
 
   constructor(private service: ProductService,private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.producto);
+  }
 
   guardar(producto: Producto) {
     this.service.createProduct(producto).subscribe((data) => {

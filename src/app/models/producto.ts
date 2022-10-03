@@ -11,4 +11,5 @@ export class Producto {
     temporada: String;
     genero: String;
     categoria: String;
+    imagen: String
 }

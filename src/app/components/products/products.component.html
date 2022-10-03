@@ -1,51 +1,19 @@
-<div class="card border-primary mb-3">
-  <div class="card-header">Productos</div>
-  <div class="card-body text-primary">
-    <div class="row">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Descripcion</th>
-            <th>Precio</th>
-            <th>Marca</th>
-            <th>Talla</th>
-            <th>Color</th>
-            <th>Stock</th>
-            <th>Codigo</th>
-            <th>Temporada</th>
-            <th>Genero</th>
-            <th>Categoria</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let producto of producto">
-            <td>{{ producto.nombre }}</td>
-            <td>{{ producto.descripcion }}</td>
-            <td>{{ producto.precio }}</td>
-            <td>{{ producto.marca }}</td>
-            <td>{{ producto.talla }}</td>
-            <td>{{ producto.color }}</td>
-            <td>{{ producto.stock }}</td>
-            <td>{{ producto.codigoBarras }}</td>
-            <td>{{ producto.temporada }}</td>
-            <td>{{ producto.genero }}</td>
-            <td>{{ producto.categoria }}</td>
-            <td>
-              <button
-                (click)="editarProducto(producto)"
-                class="btn btn-warning"
-              >
-                Editar
-              </button>
-              <button class="btn btn-danger" style="margin-left: 10px">
-                Delete
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+<body>
+<h1>Lista de productos</h1>
+<br>
+
+<div class="container" style="background-color:#EA8080   ;">
+  
+  <div class= "card" *ngFor="let producto of producto">
+    <img src="assets/images/logo.jpeg" alt="">
+       <h4>{{ producto.nombre }}</h4> 
+        <p>{{ producto.descripcion }}</p>
+       <p>{{ producto.precio | currency: 'USD' | lowercase }}</p> 
+       <p>{{ producto.marca }}</p> 
+       <div class="center">
+       <button type="button" class="center">Añadir</button>
+       </div>
+      </div>
+      
     </div>
-  </div>
-</div>
+</body>

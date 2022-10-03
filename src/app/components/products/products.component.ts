@@ -18,7 +18,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit(){
      this.productoService.getAllProductos().subscribe(data => {
       this.producto = data;
-      alert("ERES UNA ZORRA MAPIPAAAAAAAS!!!!")
+      console.log(this.producto);
     })
   }
 editarProducto(producto:Producto):void{
