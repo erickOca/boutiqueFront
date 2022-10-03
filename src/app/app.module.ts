@@ -9,10 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './components/products/products.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { UpdateProductComponent } from './components/update-product/update-product.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 
@@ -21,18 +19,15 @@ const routes: Routes = [
   { path: '', component: ProductsComponent },
   { path: 'formProd', component: FormProductsComponent },
   { path: 'formLogin', component: FormLoginComponent },
-  { path: 'editarProducto', component: UpdateProductComponent }
 ]
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     FooterComponent,
-    SidebarComponent,
     LoginComponent,
     FormLoginComponent,
     FormProductsComponent,
-    UpdateProductComponent,
     NavbarComponent,
     CarouselComponent
     
