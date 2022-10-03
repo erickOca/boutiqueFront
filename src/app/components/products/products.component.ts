@@ -18,6 +18,8 @@ export class ProductsComponent implements OnInit {
   ngOnInit(){
      this.getProducto();
   }
+
+
 editarProducto(producto:Producto):void{
 localStorage.setItem("id",producto.id.toString);
 this.router.navigate(['editarProducto']);

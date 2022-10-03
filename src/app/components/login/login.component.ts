@@ -22,6 +22,6 @@ export class LoginComponent implements OnInit {
   onLogin(form: any){
     this.router.navigate(['listProd']);
     console.log(form)
-    alert("Mapipaaaaa asquerosaaaa iniciadaaaa")
+    alert("Sesion iniciada")
   }
 }
