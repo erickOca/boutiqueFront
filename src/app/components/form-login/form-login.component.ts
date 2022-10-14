@@ -1,8 +1,9 @@
-import { Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from './../../services/auth.service';
+import { TokenService } from './../../services/token.service';
+import { NuevoUsuario } from './../../models/nuevo-usuario';
 import { Router } from '@angular/router';
-import { UsuarioService } from './../../services/usuario.service';
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from 'src/app/models/usuario';
 
 @Component({
   selector: 'app-form-login',
@@ -10,16 +11,45 @@ import { Usuario } from 'src/app/models/usuario';
   styleUrls: ['./form-login.component.css'],
 })
 export class FormLoginComponent implements OnInit {
-  usuario: Usuario = new Usuario();
-  constructor(private service: UsuarioService, private router: Router) {}
 
-  ngOnInit(): void {}
-  
-  createUser(usuario:Usuario){
-this.service.createUser(usuario).subscribe((data) => {
-  
-  
-  this.router.navigate(['listProd']);
-});
+ nuevoUsuario: NuevoUsuario;
+  nombre: string;
+  nombreUsuario: string;
+  email: string;
+  password: string;
+  errMsj: string;
+  isLogged = false;
+
+  constructor(
+    private tokenService: TokenService,
+    private authService: AuthService,
+    private router: Router,
+    private toastr: ToastrService
+  ) { }
+
+  ngOnInit() {
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+    }
+  }
+
+  onRegister(): void {
+    this.nuevoUsuario = new NuevoUsuario(this.nombre, this.nombreUsuario, this.email, this.password);
+    this.authService.nuevo(this.nuevoUsuario).subscribe(
+      data => {
+        this.toastr.success('Cuenta Creada', 'OK', {
+          timeOut: 3000, positionClass: 'toast-top-center'
+        });
+console.log(this.nuevoUsuario);
+         this.router.navigate(['/login']);
+      },
+      err => {
+        this.errMsj = err.error.mensaje;
+        this.toastr.error(this.errMsj, 'Fail', {
+          timeOut: 3000,  positionClass: 'toast-top-center',
+        });
+        // console.log(err.error.message);
+      }
+    );
   }
 }
