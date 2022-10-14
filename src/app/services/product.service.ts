@@ -8,7 +8,7 @@ import { ThisReceiver } from '@angular/compiler';
   providedIn: 'root',
 })
 export class ProductService {
-  private baseUrl: string = 'http://localhost:8081/products/';
+  private baseUrl: string = 'http://localhost:8080/products/';
   constructor(private httpClient: HttpClient) {
     
   }
