@@ -1,19 +1,53 @@
+<div class="search">
+  <button mat-raised-button color="primary" (click)="nuevo()">nuevo</button>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Buscar producto</mat-label>
+    <input matInput placeholder="nombre" />
+  </mat-form-field>
+  <button mat-raised-button color="primary">Buscar</button>
+
+  <mat-form-field appearance="legacy">
+    <mat-label>Buscar por talla</mat-label>
+    <mat-select name="talla">
+      <mat-option *ngFor="let talla of tallas" [value]="talla" required>{{
+        talla
+        }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button color="primary">Buscar</button>
+  <mat-form-field appearance="legacy">
+    <mat-label>Temporada</mat-label>
+    <mat-select name="temporada">
+      <mat-option *ngFor="let temporada of temporadas" [value]="temporada" required>{{ temporada }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button color="primary">Buscar</button>
+</div>
+
 <body>
-  <app-carousel></app-carousel>
-
-<div class="container" style="background-color: #CCD1D1       ;">
-
-  <div class= "card" *ngFor="let producto of producto">
-    <img src="assets/images/logo.jpeg" alt="">
-       <h4>{{ producto.nombre }}</h4> 
-        <p>{{ producto.descripcion }}</p>
-       <p>{{ producto.precio | currency: 'USD' | lowercase }}</p> 
-       <p>{{ producto.marca }}</p> 
-       <div class="center">
-       <button type="button" class="center">Añadir</button>
-       </div>
+  <div class="container">
+    <div class="card" *ngFor="let producto of producto" click="verDetalle">
+      <img src="assets/images/logo.jpeg" alt="" />
+      <h4>{{ producto.nombre }}</h4>
+      <p>{{ producto.descripcion }}</p>
+      <p>{{ producto.precio | currency: "USD" | lowercase }}</p>
+      <p>{{ producto.marca }}</p>
+      <p>{{ producto.talla }}</p>
+      <div class="example-button-row">
+        <button mat-raised-button color="accent" [routerLink]="['/FormProduct/', producto.idProducto]">
+          Editar
+        </button>
+        <button mat-raised-button color="warn" (click)="eliminar(producto.idProducto)">
+          Eliminar
+        </button>
       </div>
-      
+      <br />
+      <div class="example-button-row">
+        <button mat-raised-button color="primary" routerLink="/detalle/{{ producto.idProducto }}">
+          Ver mas
+        </button>
+      </div>
     </div>
-
+  </div>
 </body>

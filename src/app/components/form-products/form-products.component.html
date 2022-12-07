@@ -1,161 +1,84 @@
-<body>
-  <div class="container">
-    <div>
-      <form action="">
-        <h1>Registra productos</h1>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="nombre" class="form_label">Nombre</label>
-            <input
-              type="nombre"
-              class="form-control"
-              id="nombre"
-              placeholder="Nombre"
-              [(ngModel)]="producto.nombre"
-              name="nombre"
-            />
-            <br />
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword4" class="form_label">Descripcion</label>
-            <input
-              type="Descripcion"
-              class="form-control"
-              id="Descripcion"
-              placeholder="Descripcion"
-              [(ngModel)]="producto.descripcion"
-              name="descripcion"
-            />
-            <br />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputAddress" class="form_label">Precio</label>
-          <input
-            type="number"
-            class="form-control"
-            id="Precio"
-            placeholder="$"
-            [(ngModel)]="producto.precio"
-            name="precio"
-          />
-          <br />
-        </div>
-        <div class="form-group">
-          <label for="inputAddress2" class="form_label">Marca</label>
-          <input
-            type="text"
-            class="form-control"
-            id="marca"
-            placeholder="Marca"
-            [(ngModel)]="producto.marca"
-            name="marca"
-          />
-          <br />
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputCity" class="form_label">Talla</label>
-            <input
-              type="text"
-              class="form-control"
-              id="talla"
-              [(ngModel)]="producto.talla"
-              name="talla"
-            />
-            <br />
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputZip" class="form_label">Color</label>
-            <input
-              type="text"
-              class="form-control"
-              id="inputZip"
-              [(ngModel)]="producto.color"
-              name="color"
-            />
-            <br />
-          </div>
-        </div>
-        <div class="form-group col-md-2">
-          <label for="inputZip" class="form_label">Stock</label>
-          <input
-            type="number"
-            class="form-control"
-            id="number"
-            [(ngModel)]="producto.stock"
-            name="stock"
-          />
-          <br />
-        </div>
-        <div class="form-group col-md-2">
-          <label for="inputZip" class="form_label">Codigo de barras</label>
-          <input
-            type="text"
-            class="form-control"
-            id="codigoBarras"
-            [(ngModel)]="producto.codigoBarras"
-            name="codigoBarras"
-          />
-          <br />
-        </div>
-        <div class="form-group col-md-2">
-          <label for="inputZip" class="form_label">Temporada</label>
-          <input
-            type="text"
-            class="form-control"
-            id="temporada"
-            [(ngModel)]="producto.temporada"
-            name="temporada"
-          />
-        </div>
-        <div class="form-group col-md-2">
-          <label for="inputZip" class="form_label">Genero</label>
-          <input
-            type="text"
-            class="form-control"
-            id="Genero"
-            [(ngModel)]="producto.genero"
-            name="genero"
-          />
-          <br />
-        </div>
-        <div class="form-group col-md-2">
-          <label for="inputZip" class="form_label">Categoria</label>
-          <input
-            type="text"
-            class="form-control"
-            id="categoria"
-            [(ngModel)]="producto.categoria"
-            name="categoria"
-          />
-        </div>
-        <div class="input-group">
-          <input
-            type="file"
-            class="form-control"
-            id="inputGroupFile04"
-            aria-describedby="inputGroupFileAddon04"
-            aria-label="Upload"
-               [(ngModel)]="producto.imagen"
-            name="imagen"
-          
-          />
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            id="inputGroupFileAddon04"
-          >
-            Button
-          </button>
-        </div>
-        <br />
-        <br />
-        <button (click)="guardar(producto)" class="btn btn-primary">
-          Agregar
-        </button>
-        
-      </form>
-    </div>
-  </div>
-</body>
+<div class="container">
+  <form action="" class="example-form">
+    <h1>Registrar productos</h1>
+    <mat-form-field appearance="legacy">
+      <mat-label> Nombre </mat-label>
+      <input matInput type="nombre" class="form-control" id="nombre" [(ngModel)]="producto.nombre" name="nombre"
+        required />
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Descripcion</mat-label>
+      <input matInput type="Descripcion" class="form-control" id="Descripcion" [(ngModel)]="producto.descripcion"
+        name="descripcion" required />
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Precio</mat-label>
+      <input matInput type="number" class="form-control" id="Precio" placeholder="$" [(ngModel)]="producto.precio"
+        name="precio" required />
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Marca</mat-label>
+      <input matInput type="text" class="form-control" id="marca" placeholder="Marca" [(ngModel)]="producto.marca"
+        name="marca" required />
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Talla</mat-label>
+      <mat-select [(ngModel)]="producto.talla" name="talla">
+        <mat-option *ngFor="let talla of tallas" [value]="talla" required>{{
+          talla
+          }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Color</mat-label>
+      <input matInput type="text" class="form-control" id="inputZip" [(ngModel)]="producto.color" name="color"
+        required />
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Stock</mat-label>
+      <input matInput type="number" class="form-control" id="number" [(ngModel)]="producto.stock" name="stock"
+        required />
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Codigo de barras</mat-label>
+      <input matInput type="text" class="form-control" id="codigoBarras" [(ngModel)]="producto.codigoBarras"
+        name="codigoBarras" required />
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Temporada</mat-label>
+      <mat-select [(ngModel)]="producto.temporada" name="temporada">
+        <mat-option *ngFor="let temporada of temporadas" [value]="temporada" required>{{
+          temporada
+          }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Categoria</mat-label>
+      <input matInput class="form-control" type="text" id="categoria" [(ngModel)]="producto.categoria" name="categoria"
+        required />
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Genero</mat-label>
+      <mat-select [(ngModel)]="producto.genero" name="talla">
+        <mat-option *ngFor="let genero of generos" [value]="genero" required>{{
+          genero
+          }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+      aria-label="Upload" [(ngModel)]="producto.imagen" name="imagen" required />
+    <br>
+    <br>
+    <br>
+
+    <button (click)= "guardar(producto)" mat-raised-button color="primary" *ngIf="!producto.idProducto else elseBlock">
+      Agregar
+    </button>
+    <ng-template #elseBlock>
+      <button (click)= "update()" mat-raised-button color="primary">
+        Actualizar
+      </button>
+      </ng-template>
+  </form>
+</div>

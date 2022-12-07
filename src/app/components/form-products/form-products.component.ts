@@ -1,7 +1,7 @@
+import { Producto } from 'src/app/models/producto';
 import { ProductService } from './../../services/product.service';
-import { Producto } from './../../models/producto';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-products',
@@ -9,19 +9,39 @@ import { Router } from '@angular/router';
   styleUrls: ['./form-products.component.css'],
 })
 export class FormProductsComponent implements OnInit {
-
   producto: Producto = new Producto();
-
-  constructor(private service: ProductService,private router: Router) {}
+  generos = ['Hombre', 'Mujer'];
+  tallas = ['36/38','40/42','44/46','48/50']
+  temporadas = ['Verano','invierno','otoño','primavera']
+  constructor(private service: ProductService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    console.log(this.producto);
+    this.cargar();
   }
 
   guardar(producto: Producto) {
     this.service.createProduct(producto).subscribe((data) => {
       alert('se agrego nuevo producto!!');
-      this.router.navigate(['listProd']);
+      this.router.navigate(['lista']);
     });
   }
+
+  cargar():void{
+    this.activatedRoute.params.subscribe(
+      e=> {
+      let id=e['id'];
+      if(id){
+        this.service.getProductId(id).subscribe(
+          es=>this.producto=es
+        );
+      }
+  }
+    );
+}
+
+update(): void{
+  this.service.updateProducto(this.producto).subscribe(
+    e=>this.router.navigate(['lista'])
+  )
+}
 }
