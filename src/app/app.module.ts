@@ -1,9 +1,4 @@
-import { interceptorProvider } from './app/interceptors/prod-interceptor.service';
-import { LoginComponent } from './components/login/login.component';
-import { IndexComponent } from './components/index/index.component';
-import { FormLoginComponent } from './components/form-login/form-login.component';
 import { FormProductsComponent } from './components/form-products/form-products.component';
-import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,21 +9,29 @@ import { ProductsComponent } from './components/products/products.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { CarouselComponent } from './components/carousel/carousel.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { DetailsProductoComponent } from './components/products/details-producto/details-producto.component';
+// Angular material
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field'; 
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import  {MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     FooterComponent,
-    LoginComponent,
-    FormLoginComponent,
     FormProductsComponent,
     NavbarComponent,
-    CarouselComponent,
-    IndexComponent,
+    SidebarComponent,
+    DetailsProductoComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,9 +41,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     FormsModule,
     ToastrModule.forRoot(),
-  
+    //Angular material
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSnackBarModule,
+    MatCardModule,
   ],
-  providers: [interceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

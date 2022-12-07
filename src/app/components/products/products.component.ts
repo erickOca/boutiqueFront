@@ -6,35 +6,39 @@ import { Producto } from 'src/app/models/producto';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent {
+  tallas = ['36/38', '40/42', '44/46', '48/50'];
+  temporadas = ['Verano', 'invierno', 'otoño', 'primavera'];
+  producto: Producto[] = [];
+  
+  constructor(
+    private productoService: ProductService,
+    private router: Router
+  ) {}
 
-  producto: any;
-
-  productos: Producto[];
-  constructor(private productoService: ProductService,private router: Router) { }
-
-  ngOnInit(){
-     this.getProducto();
+  ngOnInit() {
+    this.getProducto();
   }
 
+  getProducto() {
+    this.productoService.getAllProductos().subscribe((data) => {
+      this.producto = data;
+      console.log(this.producto);
+    });
+  }
 
-editarProducto(producto:Producto):void{
-localStorage.setItem("id",producto.id.toString);
-this.router.navigate(['editarProducto']);
-}
+  nuevo() {
+    this.router.navigate(['FormProduct']);
+  }
 
-getProducto(){
-  this.productoService.getAllProductos().subscribe(data => {
-  this.producto = data;
-  console.log(this.producto);
-})}
+  eliminar(idProducto: number){
+    this.productoService.deleteProduct(idProducto).subscribe(
+      data => {
+          this.getProducto();
+          alert("Producto eliminado")
 
-getCategoria(categoria:String){
-  this.productoService.getByCategoria(categoria).subscribe(data =>{
-    this.producto = data;
-    console.log(this.producto);
-  })}
-
+    });
+  }
 }
